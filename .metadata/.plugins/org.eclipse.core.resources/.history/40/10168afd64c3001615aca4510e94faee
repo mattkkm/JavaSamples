@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class TicTacToe {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int gameOver = 0;
+		int[] moves = new int[9];
+		Scanner sc = new Scanner(System.in);
+		int nextMove;
+		
+		while(gameOver == 0){
+			System.out.println("Please enter a number: ");
+			nextMove = sc.nextInt();
+			if(nextMove>0){
+				System.out.println("purpleowl");
+			}
+			
+			
+		}
+	}
+	public static String printBoard(int[] plays){
+		String board = "";
+		for(int i = 0; i<9; i++){
+			
+			if(i%3 == 0){
+				board = board + "\n";
+			}
+		}
+		return "";
+	}
+
+}

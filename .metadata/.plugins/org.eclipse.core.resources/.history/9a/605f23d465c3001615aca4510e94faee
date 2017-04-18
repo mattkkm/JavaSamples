@@ -1,0 +1,77 @@
+import java.util.Scanner;
+
+public class TicTacToe {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int gameOver = 0;
+		int[] moves = new int[9];
+		Scanner sc = new Scanner(System.in);
+		int nextMove;
+		int count = 0;
+		String board = "";
+//		for(int i = 0; i < moves.length; i++){
+//			moves[i] = 0;
+//		}
+		
+		while(gameOver == 0){
+			board = getBoardString(moves);
+			System.out.println(board);
+			System.out.println("Please enter a number 1 - 9: ");
+			nextMove = sc.nextInt();
+			count = count+1;
+			if (count == 3){
+				gameOver = 1;
+			}
+			
+			//checks if valid move on the board
+			if(nextMove > 9 || nextMove < 1){
+				System.out.println("Not a valid move on the board");
+			}
+			else{
+				//checks if position has already been played.
+				if(moves[nextMove - 1] != 1 || moves[nextMove -1] != -1){
+					moves[nextMove - 1] = 1;
+					System.out.println("purpleowl");
+				}
+				else{
+					System.out.println("Not an available space. \n Please play a valid position");
+				}
+			}
+		}
+	}
+	public static String getBoardString(int[] positions){
+		String board = "";
+		int middlePiece = 0;
+
+		for(int i = 0; i < positions.length; i++){
+			
+			//checks if is middle piece
+			if(i % 3 == 1){
+				middlePiece = 1;
+				board = board + " | ";
+			}
+			if(positions[i] == 1){
+				board = board + "X";
+			}
+			else if(positions[i] == -1){
+				board = board + "O";
+			}
+			else{
+				board = board + "-";
+			}
+			if(middlePiece == 1){
+				board = board + " | ";
+			}
+			if(i % 3 == 2){
+				board = board + "\n";
+			}
+		}
+			
+		return board;
+	}
+
+}
